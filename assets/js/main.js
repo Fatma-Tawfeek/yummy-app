@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
         getAreaMeals(areaName);
     } else if (ingredientName) {
         getIngredientMeals(ingredientName);
-    } else {
+    } else if (window.location.pathname == "/index.html" && window.location.search == "") {
         fetchMeals();
     }
 });
@@ -283,3 +283,194 @@ function getIngredientMeals(ingredient) {
 }
 
 /* Contact Us Validation */
+
+if (window.location.pathname == "/contact.html") {
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const age = document.getElementById("age");
+    const password = document.getElementById("password");
+    const repassword = document.getElementById("repassword");
+    const submitBtn = document.getElementById("submit-btn");
+
+    /* Validate Existing */
+    function isEmpty(input) {
+        return input.trim() !== "";
+    }
+
+    /* Name Validation */
+    function isValidName(name) {
+        const regex = /^[A-Za-z\s]+$/;
+        if (regex.test(name)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function validateName(name) {
+        if (!isEmpty(name)) {
+            document.getElementById("name-error").classList.remove("d-none");
+            return false;
+        } else if (!isValidName(name)) {
+            document.getElementById("name-error").classList.remove("d-none");
+            return false;
+        } else {
+            document.getElementById("name-error").classList.add("d-none");
+            return true;
+        }
+    }
+
+    name.addEventListener("input", function () {
+        validateName(this.value);
+        checkFormValidity();
+    });
+
+    /* Email Validation */
+    function isValidEmail(email) {
+        const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (regex.test(email)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function validateEmail(email) {
+        if (!isEmpty(email)) {
+            document.getElementById("email-error").classList.remove("d-none");
+            return false;
+        } else if (!isValidEmail(email)) {
+            document.getElementById("email-error").classList.remove("d-none");
+            return false;
+        } else {
+            document.getElementById("email-error").classList.add("d-none");
+            return true;
+        }
+    }
+
+    email.addEventListener("input", function () {
+        validateEmail(this.value);
+        checkFormValidity();
+    });
+
+    /* Phone Validation */
+    function isValidPhone(phone) {
+        const regex = /^(010|011|012|015)\d{8}$/;
+        if (regex.test(phone)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function validatePhone(phone) {
+        if (!isEmpty(phone)) {
+            document.getElementById("phone-error").classList.remove("d-none");
+            return false;
+        } else if (!isValidPhone(phone)) {
+            document.getElementById("phone-error").classList.remove("d-none");
+            return false;
+        } else {
+            document.getElementById("phone-error").classList.add("d-none");
+            return true;
+        }
+    }
+
+    phone.addEventListener("input", function () {
+        validatePhone(this.value);
+        checkFormValidity();
+    });
+
+    /* Age Validation */
+    function isValidAge(age) {
+        if (age > 0 && age < 100) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function validateAge(age) {
+        if (!isEmpty(age)) {
+            document.getElementById("age-error").classList.remove("d-none");
+            return false;
+        } else if (!isValidAge(age)) {
+            document.getElementById("age-error").classList.remove("d-none");
+            return false;
+        } else {
+            document.getElementById("age-error").classList.add("d-none");
+            return true;
+        }
+    }
+
+    age.addEventListener("input", function () {
+        validateAge(this.value);
+        checkFormValidity();
+    });
+
+    /* Password Validation */
+    function isValidPassword(password) {
+        const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        if (regex.test(password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function validatePassword(password) {
+        if (!isEmpty(password)) {
+            document.getElementById("password-error").classList.remove("d-none");
+            return false;
+        } else if (!isValidPassword(password)) {
+            document.getElementById("password-error").classList.remove("d-none");
+            return false;
+        } else {
+            document.getElementById("password-error").classList.add("d-none");
+            return true;
+        }
+    }
+
+    password.addEventListener("input", function () {
+        validatePassword(this.value);
+        checkFormValidity();
+    });
+
+    /* Re-Password Validation */
+    function isValidRePassword(password, repassword) {
+        if (password == repassword) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function validateRePassword(password, repassword) {
+        if (!isEmpty(repassword)) {
+            document.getElementById("repassword-error").classList.remove("d-none");
+            return false;
+        } else if (!isValidRePassword(password, repassword)) {
+            document.getElementById("repassword-error").classList.remove("d-none");
+            return false;
+        } else {
+            document.getElementById("repassword-error").classList.add("d-none");
+            return true;
+        }
+    }
+
+    repassword.addEventListener("input", function () {
+        validateRePassword(password.value, this.value);
+        checkFormValidity();
+    });
+
+    /* Submit Validation */
+    function checkFormValidity() {
+        if (
+            validateName(name.value) &&
+            validateEmail(email.value) &&
+            validatePhone(phone.value) &&
+            validateAge(age.value) &&
+            validatePassword(password.value) &&
+            validateRePassword(password.value, repassword.value)
+        ) {
+            submitBtn.classList.remove("disabled");
+        } else {
+            submitBtn.classList.add("disabled");
+        }
+    }
+}

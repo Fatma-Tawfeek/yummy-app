@@ -82,37 +82,64 @@
                             type="text"
                             placeholder="Enter Your Name"
                             class="form-control d-block w-100 mb-3"
+                            id="name"
                         />
+                        <div class="alert alert-danger d-none text-center" id="name-error">
+                            Special characters and numbers not allowed
+                        </div>
                         <input
                             type="text"
                             placeholder="Enter Your Phone"
                             class="form-control d-block w-100 mb-3"
+                            id="phone"
                         />
+                        <div class="alert alert-danger d-none text-center" id="phone-error">
+                            Enter valid Phone Number
+                        </div>
                         <input
                             type="password"
                             placeholder="Enter Your Password"
                             class="form-control d-block w-100 mb-3"
+                            id="password"
                         />
+                        <div class="alert alert-danger d-none text-center" id="password-error">
+                            Enter valid password *Minimum eight characters, at least one letter and
+                            one number:*
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <input
                             type="text"
                             placeholder="Enter Your Email"
                             class="form-control d-block w-100 mb-3"
+                            id="email"
                         />
+                        <div class="alert alert-danger d-none text-center" id="email-error">
+                            Email not valid *exemple@yyy.zzz
+                        </div>
                         <input
                             type="number"
                             placeholder="Enter Your Age"
                             class="form-control d-block w-100 mb-3"
+                            id="age"
                         />
+                        <div class="alert alert-danger d-none text-center" id="age-error">
+                            Enter valid age
+                        </div>
                         <input
                             type="password"
                             placeholder="Re-Enter Your Password"
                             class="form-control d-block w-100 mb-3"
+                            id="repassword"
                         />
+                        <div class="alert alert-danger d-none text-center" id="repassword-error">
+                            Re-Enter valid password
+                        </div>
                     </div>
                     <div class="col-12 d-flex justify-content-center">
-                        <button class="btn btn-outline-danger disabled">Submit</button>
+                        <button class="btn btn-outline-danger disabled" id="submit-btn">
+                            Submit
+                        </button>
                     </div>
                 </div>
             </div>
