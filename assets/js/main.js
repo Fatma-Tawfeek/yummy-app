@@ -44,19 +44,36 @@ function displayMeals(meals) {
     const container = document.getElementById("meals-container");
     let cartona = "";
 
-    for (let meal of meals) {
-        cartona += `
+    if (meals.length < 20) {
+        for (let i = 0; i < meals.length; i++) {
+            cartona += `
         <div class="col-md-3">
-            <div class="meal-card rounded position-relative overflow-hidden" data-id="${meal.idMeal}">
-                <img src="${meal.strMealThumb}" class="w-100" alt="meal-image" />
+            <div class="meal-card rounded position-relative overflow-hidden" data-id="${meals[i].idMeal}">
+                <img src="${meals[i].strMealThumb}" class="w-100" alt="meal-image" />
                 <div
                     class="overlay w-100 d-flex flex-column justify-content-center align-items-center position-absolute left-0 h-100 text-black"
                 >
-                    <h3>${meal.strMeal}</h3>
+                    <h3>${meals[i].strMeal}</h3>
                 </div>
             </div>
         </div>
         `;
+        }
+    } else {
+        for (let i = 0; i < 20; i++) {
+            cartona += `
+        <div class="col-md-3">
+            <div class="meal-card rounded position-relative overflow-hidden" data-id="${meals[i].idMeal}">
+                <img src="${meals[i].strMealThumb}" class="w-100" alt="meal-image" />
+                <div
+                    class="overlay w-100 d-flex flex-column justify-content-center align-items-center position-absolute left-0 h-100 text-black"
+                >
+                    <h3>${meals[i].strMeal}</h3>
+                </div>
+            </div>
+        </div>
+        `;
+        }
     }
     container.innerHTML = cartona;
 
@@ -105,6 +122,9 @@ function displayMealDetails(meal) {
                 ${displayRecipes(meal)}           
             </ul>
             <h3><span class="fw-bolder">Tags:</span></h3>
+            <ul class="list-unstyled d-flex flex-wrap g-3">
+              ${displayTags(meal.strTags) ? displayTags(meal.strTags) : `<p>No Tags</p>`}
+            </ul>
             <div class="d-flex">
                 <a href="${meal.strSource}" target="_blank" class="btn btn-success me-2">Source</a>
                 <a href="${meal.strYoutube}" target="_blank" class="btn btn-danger">Youtube</a>
@@ -113,7 +133,17 @@ function displayMealDetails(meal) {
     `;
     mealDetails.innerHTML = cartona;
 }
-
+function displayTags(tags) {
+    if (!tags) {
+        return null;
+    }
+    let tagsArr = tags.split(",");
+    let cartona = "";
+    for (let i = 0; i < tagsArr.length; i++) {
+        cartona += `<li><div class="alert alert-danger p-1 m-2">${tagsArr[i]}</div></li>`;
+    }
+    return cartona;
+}
 function displayRecipes(meal) {
     let cartona = "";
     for (let i = 1; i <= 20; i++) {
