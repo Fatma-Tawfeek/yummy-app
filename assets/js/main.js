@@ -34,7 +34,10 @@ window.addEventListener("DOMContentLoaded", () => {
         getAreaMeals(areaName);
     } else if (ingredientName) {
         getIngredientMeals(ingredientName);
-    } else if (window.location.pathname == "/index.html" && window.location.search == "") {
+    } else if (
+        (window.location.pathname == "/index.html" && window.location.search == "") ||
+        window.location.pathname == "/"
+    ) {
         fetchMeals();
     }
 });
