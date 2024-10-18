@@ -158,7 +158,7 @@ function displayRecipes(meal) {
 
 /* Search Meals */
 
-if (window.location.pathname == "/search.html") {
+if (window.location.pathname.includes("/search.html")) {
     const search = document.getElementById("search-name");
     const f_search = document.getElementById("search-letter");
 
@@ -181,7 +181,7 @@ if (window.location.pathname == "/search.html") {
 
 /* Categories Page */
 
-if (window.location.pathname == "/categories.html") {
+if (window.location.pathname.includes("/categories.html")) {
     function fetchCategories() {
         fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
             .then((res) => res.json())
@@ -229,7 +229,7 @@ function getCategoryMeals(category) {
 
 /* Areas pages */
 
-if (window.location.pathname == "/area.html") {
+if (window.location.pathname.includes("/area.html")) {
     function fetchAreas() {
         fetch("https://www.themealdb.com/api/json/v1/1/list.php?a=list")
             .then((res) => res.json())
@@ -270,7 +270,7 @@ function getAreaMeals(area) {
 
 /* Ingredients Page */
 
-if (window.location.pathname == "/ingredients.html") {
+if (window.location.pathname.includes("/ingredients.html")) {
     function fetchIngredients() {
         fetch("https://www.themealdb.com/api/json/v1/1/list.php?i=list")
             .then((res) => res.json())
@@ -314,7 +314,7 @@ function getIngredientMeals(ingredient) {
 
 /* Contact Us Validation */
 
-if (window.location.pathname == "/contact.html") {
+if (window.location.pathname.includes("/contact.html")) {
     const name = document.getElementById("name");
     const email = document.getElementById("email");
     const phone = document.getElementById("phone");
