@@ -34,13 +34,19 @@ window.addEventListener("DOMContentLoaded", () => {
         getAreaMeals(areaName);
     } else if (ingredientName) {
         getIngredientMeals(ingredientName);
-    } else if (
-        (window.location.pathname == "/index.html" && window.location.search == "") ||
-        window.location.pathname == "/"
-    ) {
-        fetchMeals();
+    } else if (isHomePage()) {
+        fetchMeals(); // Call fetchMeals() on the homepage
     }
 });
+
+function isHomePage() {
+    // Get the current path and split it to handle cases where there's a repository prefix
+    const path = window.location.pathname;
+    const page = path.split("/").pop(); // Get the last part of the path (e.g., "index.html")
+
+    // Check if it's either the root or "index.html"
+    return page === "" || page === "index.html" || page === "yummy-app";
+}
 
 /* Fetch Meals */
 function displayMeals(meals) {
