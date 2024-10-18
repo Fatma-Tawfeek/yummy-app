@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Yummy</title>
+        <!-- Fontawesome CSS -->
+        <link href="assets/fontawesome/css/all.min.css" rel="stylesheet" />
+        <!-- Bootstrap 5.3.3 CSS  -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Main CSS file -->
+        <link href="assets/css/style.css" rel="stylesheet" />
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png" />
+    </head>
+    <body class="bg-dark">
+        <!-- Loading Screen  -->
+        <div
+            class="loader-page position-fixed w-100 h-100 top-0 left-0 z-2 bg-dark align-items-center justify-content-center text-white"
+        >
+            <span class="loader"></span>
+        </div>
+        <!-- Navbar -->
+        <nav class="min-vh-100 d-flex position-fixed top-0 z-1">
+            <div
+                class="sidebar bg-dark text-white py-4 d-flex flex-column justify-content-between overflow-hidden"
+            >
+                <ul class="d-flex flex-column gap-3 list-unstyled">
+                    <li>
+                        <a href="search.html" class="text-decoration-none text-white">Search</a>
+                    </li>
+                    <li>
+                        <a href="categories.html" class="text-decoration-none text-white"
+                            >Categories</a
+                        >
+                    </li>
+                    <li><a href="area.html" class="text-decoration-none text-white">Area</a></li>
+                    <li>
+                        <a href="ingredients.html" class="text-decoration-none text-white"
+                            >Ingredients</a
+                        >
+                    </li>
+                    <li>
+                        <a href="contact.html" class="text-decoration-none text-white"
+                            >Contact Us</a
+                        >
+                    </li>
+                </ul>
+                <div class="copyrights">
+                    <div class="d-flex gap-1">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <p>
+                        Copyright © 2024. All Rights <br />
+                        Reserved.
+                    </p>
+                </div>
+            </div>
+            <div
+                class="bg-white text-dark d-flex flex-column justify-content-between text-center py-4 px-2"
+                style="width: 70px"
+            >
+                <img src="assets/images/logo.png" class="img-fluid mx-auto" alt="logo" />
+                <i class="fa-solid fa-bars fa-2xl open-btn"></i>
+                <i class="fa-solid fa-2xl fa-x close-btn" style="display: none"></i>
+                <div class="d-flex flex-column justify-content-between align-items-center gap-2">
+                    <i class="fa-solid fa-globe"></i>
+                    <i class="fa-solid fa-share-nodes"></i>
+                </div>
+            </div>
+        </nav>
+        <!-- Main -->
+        <main
+            class="min-vh-100 position-relative text-white py-5 d-flex justify-content-center align-items-center"
+        >
+            <div class="container">
+                <div class="row gy-3">
+                    <div class="col-md-6">
+                        <input
+                            type="text"
+                            placeholder="Enter Your Name"
+                            class="form-control d-block w-100 mb-3"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Enter Your Phone"
+                            class="form-control d-block w-100 mb-3"
+                        />
+                        <input
+                            type="password"
+                            placeholder="Enter Your Password"
+                            class="form-control d-block w-100 mb-3"
+                        />
+                    </div>
+                    <div class="col-md-6">
+                        <input
+                            type="text"
+                            placeholder="Enter Your Email"
+                            class="form-control d-block w-100 mb-3"
+                        />
+                        <input
+                            type="number"
+                            placeholder="Enter Your Age"
+                            class="form-control d-block w-100 mb-3"
+                        />
+                        <input
+                            type="password"
+                            placeholder="Re-Enter Your Password"
+                            class="form-control d-block w-100 mb-3"
+                        />
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <button class="btn btn-outline-danger disabled">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Jquery 3.7.1 JS -->
+        <script src="assets/js/jquery-3.7.1.min.js"></script>
+        <!-- Bootstrap 5.3.3 JS  -->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <!-- Main JS file -->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
